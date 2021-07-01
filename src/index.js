@@ -1,3 +1,4 @@
+import fetchCountries from './js/fetchCountries.js';
 import './sass/main.scss';
 import templateCountryMarkup from './templates/country-template.hbs'
 import templateManyCountriesMurkup from './templates/country-list.hbs'
@@ -17,19 +18,10 @@ inputRef.addEventListener('input', debounce(countrySerch, 500))
 
 function countrySerch(){   
     clearInput()
-    fetchCountries()
+    fetchCountries(inputRef.value)
     .then(countriesRender)
     .catch(emptyInputAlert)
     .finally() 
-}
-
-
-
-function fetchCountries(){
-    return fetch(`https://restcountries.eu/rest/v2/name/${inputRef.value}`)
-    .then(response => {
-        return response.json()
-    })
 }
 
 function countriesRender(countries){

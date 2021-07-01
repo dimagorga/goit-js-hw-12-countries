@@ -1,1 +1,60 @@
+.title{
+    font-size: 50px;
+    text-align: center;
+    padding: 30px 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
 
+
+.input{    
+    position: relative;
+    text-align: center;
+	padding: 10px;
+    margin-bottom: 20px;
+	width: 300px;
+	height: 30px;
+	border: 1px solid tomato;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.country-name{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;    
+}
+.flag-img{
+    margin-right: 20px;
+}
+
+.description{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.text-value{
+    font-size: 27px;
+    font-weight: 600;
+    color: tomato;
+    
+}
+.list-item{
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.list-item:hover{
+    color: tomato;
+    cursor: pointer;
+}

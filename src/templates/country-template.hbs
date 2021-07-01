@@ -1,14 +1,17 @@
 
     <h2 class="country-name">{{name}}</h2>
-    <img src="{{flag}}" alt="{{name}} flag" width="300">
-    <ul>
-        <li class="description">Capital: {{capital}}</li>
-        <li class="description">Languages:
-            <ul>                
-                {{#each languages}}
-                <li>{{name}}</li>
-                {{/each}}               
-            </ul>
-        </li> 
-        <li class="description">Population: {{population}}</li> 
-    </ul>
+    <div class="wrapper">
+        <img src="{{flag}}" alt="{{name}} flag" class="flag-img" width="300">
+        <ul class="list">
+            <li class="description">Capital: <span class="text-value">{{capital}}</span></li>
+            <li class="description">Languages:
+                <ul>                
+                    {{#each languages}}
+                    <li><span class="text-value">{{name}}</span></li>
+                    {{/each}}               
+                </ul>
+            </li> 
+            <li class="description">Population: <span class="text-value">{{population}}</span></li> 
+        </ul>
+    </div>
+    

@@ -10,28 +10,20 @@ defaultModules.set(PNotifyMobile, {});
 
 const inputRef = document.querySelector('.input-js')
 const debounce = require('lodash.debounce');
-const countryContainer = document.querySelector('.country-container')
+const countryContainer = document.querySelector('.country-container-js')
 
 
 inputRef.addEventListener('input', debounce(countrySerch, 500))
 
-
 function countrySerch(){   
     clearInput()
     fetchCountries()
-    .then(makeCountrySearcher)
-    .catch(error => console.log(error))   
+    .then(countriesRender)
+    .catch(emptyInputAlert)
+    .finally() 
 }
 
-function makeCountrySearcher(countries){
-    if(countries.length > 1 && countries.length <= 10){
-        createCountryListMarkup(countries)
-    }else if(countries.length > 10){
-        createAlert(countries)
-    }else{ 
-        createCountryMarkup(countries)
-    } 
-}
+
 
 function fetchCountries(){
     return fetch(`https://restcountries.eu/rest/v2/name/${inputRef.value}`)
@@ -40,8 +32,20 @@ function fetchCountries(){
     })
 }
 
+function countriesRender(countries){
+    if(countries.length > 1 && countries.length <= 10){
+        createCountryListMarkup(countries)
+
+    }else if(countries.length > 10){
+        manyMatchesAlert()
+
+    }else{ 
+        createCountryMarkup(countries)
+    } 
+}
+
 function clearInput(){
-    countryContainer.innerHTML = '';
+    countryContainer.innerHTML = ' ';
 }
 
 function createCountryMarkup(countries){
@@ -54,11 +58,21 @@ function createCountryListMarkup(countries){
     countryContainer.insertAdjacentHTML('beforeend', manyCountriesMarkup)
 }
 
-function createAlert(){
+function manyMatchesAlert(){
     return  alert({
-        text: 'Too many matches found. Please enter a more specific query!'
+        text: 'Too many matches found. Please enter a more specific query!',
+        delay: 2000
       });
 }
+function emptyInputAlert(){
+    return  alert({
+        text: 'Enter your country please!',
+        delay: 5000
+  });}
+   
+  
+
+
 
 
 

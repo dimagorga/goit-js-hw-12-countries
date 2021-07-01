@@ -13,7 +13,7 @@ const debounce = require('lodash.debounce');
 const countryContainer = document.querySelector('.country-container')
 
 
-inputRef.addEventListener('input', debounce(countrySerch, 1000))
+inputRef.addEventListener('input', debounce(countrySerch, 500))
 
 
 function countrySerch(){   
